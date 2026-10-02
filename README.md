@@ -23,34 +23,32 @@ A imagem é usada apenas como referência visual. Para máxima fidelidade, o arq
 Nesta primeira versão não há banco de dados nem backend. Os arquivos são processados no navegador.
 
 ## Publicação
-O projeto é estático e pode ser publicado em Cloudflare Pages, GitHub Pages ou outro serviço de hospedagem estática.
 
-## Cloudflare Pages
+O projeto é um site estático e está preparado para publicação na Vercel.
 
-O projeto já está preparado como site estático para o Cloudflare Pages.
+### Vercel
+1. Importe o repositório `DsDevsites/Informes`.
+2. Framework Preset: **Other**.
+3. Build Command: deixe vazio.
+4. Output Directory: `.` (raiz).
+5. Publique.
 
-### Opção pelo painel do Cloudflare
-1. Entre no Cloudflare.
-2. Vá em **Workers & Pages** → **Create application** → **Pages**.
-3. Conecte o GitHub e selecione `DsDevsites/Informes`.
-4. Branch: `main`.
-5. Como não há build, deixe o comando de build vazio.
-6. Diretório de saída: `/` (raiz do projeto).
-7. Publique.
+Se o projeto da Vercel estiver conectado ao GitHub, cada atualização na branch `main` gera um novo deploy automaticamente.
 
-### Configuração dos arquivos no próprio site
-Depois de publicado, abra **Configuração local** e escolha:
+### Configuração no site
+Na área **Configuração local**, escolha uma vez:
 - Planilha 02 original;
-- logo Kaefer;
-- logo Gerdau.
+- logo Kaefer, se precisar substituir a logo do modelo;
+- logo Gerdau, se precisar substituir a logo do modelo.
+
+Não é necessário informar células das logos. O modelo oficial continua sendo a base do documento e as logos são opcionais.
 
 O navegador guarda esses arquivos no **IndexedDB deste dispositivo/navegador**. Assim, o modelo padrão pode ser carregado automaticamente nas próximas utilizações. A Planilha 01 continua sendo escolhida quando você quiser processar uma nova lista.
 
 > Por segurança, um site não pode receber um caminho físico como `C:\\Pasta\\Planilha.xlsx` e acessar esse arquivo sozinho. O fluxo correto no navegador é selecionar o arquivo uma vez e armazená-lo localmente no navegador.
 
-### Observação
-A versão atual gera os arquivos no navegador e não envia os dados das planilhas para um servidor. Isso permite usar o sistema hospedado no Cloudflare sem banco de dados e sem login nesta primeira fase.
-
+### Privacidade
+Nesta primeira versão não há banco de dados nem backend. Os arquivos são processados no navegador e não são enviados para um servidor pela aplicação.
 
 ## Saídas do lote
 
