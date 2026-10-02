@@ -24,3 +24,29 @@ Nesta primeira versão não há banco de dados nem backend. Os arquivos são pro
 
 ## Publicação
 O projeto é estático e pode ser publicado em Cloudflare Pages, GitHub Pages ou outro serviço de hospedagem estática.
+
+## Cloudflare Pages
+
+O projeto já está preparado como site estático para o Cloudflare Pages.
+
+### Opção pelo painel do Cloudflare
+1. Entre no Cloudflare.
+2. Vá em **Workers & Pages** → **Create application** → **Pages**.
+3. Conecte o GitHub e selecione `DsDevsites/Informes`.
+4. Branch: `main`.
+5. Como não há build, deixe o comando de build vazio.
+6. Diretório de saída: `/` (raiz do projeto).
+7. Publique.
+
+### Configuração dos arquivos no próprio site
+Depois de publicado, abra **Configuração local** e escolha:
+- Planilha 02 original;
+- logo Kaefer;
+- logo Gerdau.
+
+O navegador guarda esses arquivos no **IndexedDB deste dispositivo/navegador**. Assim, o modelo padrão pode ser carregado automaticamente nas próximas utilizações. A Planilha 01 continua sendo escolhida quando você quiser processar uma nova lista.
+
+> Por segurança, um site não pode receber um caminho físico como `C:\\Pasta\\Planilha.xlsx` e acessar esse arquivo sozinho. O fluxo correto no navegador é selecionar o arquivo uma vez e armazená-lo localmente no navegador.
+
+### Observação
+A versão atual gera os arquivos no navegador e não envia os dados das planilhas para um servidor. Isso permite usar o sistema hospedado no Cloudflare sem banco de dados e sem login nesta primeira fase.
