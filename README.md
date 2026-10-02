@@ -50,3 +50,15 @@ O navegador guarda esses arquivos no **IndexedDB deste dispositivo/navegador**. 
 
 ### Observação
 A versão atual gera os arquivos no navegador e não envia os dados das planilhas para um servidor. Isso permite usar o sistema hospedado no Cloudflare sem banco de dados e sem login nesta primeira fase.
+
+
+## Saídas do lote
+
+O botão **Gerar lote completo** pode produzir:
+- **Excel individual:** um XLSX para cada informe;
+- **Excel consolidado:** um XLSX com uma aba por informe;
+- **PDF consolidado:** um único PDF com **1 informe por página**.
+
+Os três resultados são reunidos em um único ZIP para facilitar o download.
+
+O PDF é renderizado no navegador a partir do modelo XLSX carregado. Para preservar com máxima fidelidade o documento oficial, use sempre o XLSX original da Planilha 02.
