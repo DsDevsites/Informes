@@ -26,7 +26,7 @@ async function clearLocalConfig(){await dbClear();S.logos.kaefer=null;S.logos.ge
 const $=id=>document.getElementById(id);const norm=v=>String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,' ').trim();const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 function log(t,c=''){const e=document.createElement('div');e.className=c;e.textContent='› '+t;$('log').appendChild(e);$('log').scrollTop=$('log').scrollHeight}
 function status(t,ok=false){$('status').textContent=t;$('dot').className='dot'+(ok?' ok':'')}
-function fmt(v){return v instanceof Date?v.toLocaleDateString('pt-BR'):String(v??'')}
+function fmt(v){if(v instanceof Date){const d=v;return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear()}return String(v??'')}
 function readDataUrl(file){return new Promise((resolve,reject)=>{if(!file)return resolve(null);const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)})}
 function cellPosition(address){const m=String(address||'A1').toUpperCase().match(/^([A-Z]+)(\\d+)$/);if(!m)return{col:0,row:0};let col=0;for(const ch of m[1])col=col*26+(ch.charCodeAt(0)-64);return{col:col-1,row:Number(m[2])-1}}
 function addLogo(wb,ws,data,address,width=150,height=48){if(!data)return;const ext=data.startsWith('data:image/jpeg')?'jpeg':'png';const id=wb.addImage({base64:data,extension:ext});const p=cellPosition(address);ws.addImage(id,{tl:{col:p.col,row:p.row},ext:{width,height}})}
